@@ -1,0 +1,20 @@
+n=int(input())
+#첫째 줄에 n이 주어진다.
+
+lst=list(map(int,input().split()))
+#list로 n개의 좌표를 입력한다.
+
+lst_sorted=sorted(list(set(lst)))
+#좌표 압축을 할 배열을
+#임시 배열 lst_sorted 에
+#중복이 없고, 정렬된 상태로 저장
+
+#중복을 없애기 위해서 set
+#sorted함수를 이용하여 list를 정렬.
+
+dict={lst_sorted[i]:i for i in range(len(lst_sorted))}
+#압축할 배열의 각 수들이
+#임시배열 lst_sorted배열에 몇 번째 인덱스에 해당하는 수인지 찾는다.
+
+for i in lst:
+    print(dict[i], end=' ')
